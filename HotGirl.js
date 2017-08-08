@@ -9,18 +9,21 @@ class HotGirl {
     }
 
     static async likeGirlById(id) {
-        const sql = 'UPDATE "HotGirl" SET "likeNumber" = "likeNumber" + 1 WHERE id = $1';
+        const sql = 'UPDATE "HotGirl" SET "likeNumber" = "likeNumber" + 1 WHERE id = $1  RETURNING "likeNumber"';
         const result = await queryDB(sql, [id]);
-        if (result.count === 0) throw new Error('Hotgirl ko ton tai.');
-        return;
+        if (result.rowCount === 0) throw new Error('Hotgirl ko ton tai.');
+        return result.rows[0].likeNumber;
     }
 
     static async dislikeGirlById(id) {
         const sql = 'UPDATE "HotGirl" SET "dislikeNumber" = "dislikeNumber" + 1 WHERE id = $1';
         const result = await queryDB(sql, [id]);
-        if (result.count === 0) throw new Error('Hotgirl ko ton tai.');
+        if (result.rowCount === 0) throw new Error('Hotgirl ko ton tai.');
         return;
     }
 }
 
 module.exports = HotGirl;
+
+// HotGirl.likeGirlById(1)
+// .then(result => console.log(result));

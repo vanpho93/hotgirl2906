@@ -3,6 +3,7 @@
     <head>
         <base href="../">
         <title>Khoa Pham</title>
+        <script src="jquery.js"></script>
         <style>
             hr {
                 visibility: hidden;
@@ -25,9 +26,17 @@
             <img src="<%= hotGirl.image %>" width="300">
             <hr />
             <div class="div-control">
-                <a href="/like/<%= hotGirl.id %>"><%= hotGirl.likeNumber %> Like</a>
-                <a href="/dislike/<%= hotGirl.id %>"><%= hotGirl.dislikeNumber %> Dislike</a>
+                <a href="/like/<%= hotGirl.id %>" id="btn-like"><%= hotGirl.likeNumber %> Like</a>
+                <a href="/dislike/<%= hotGirl.id %>" id="btn-dislike"><%= hotGirl.dislikeNumber %> Dislike</a>
             </div>
         </div>
     </body>
+    <script>
+        $('#btn-like').click((e) => {
+            e.preventDefault();
+            $.get('/like/<%= hotGirl.id %>', (data) => {
+                $('#btn-like').text(data + ' Like');
+            });
+        });
+    </script>
 </html>

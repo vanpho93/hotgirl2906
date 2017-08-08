@@ -16,7 +16,7 @@ app.get('/hotgirl/:id', (req, res) => {
 app.get('/like/:id', (req, res) => {
     const { id } = req.params;
     HotGirl.likeGirlById(id)
-    .then(() => res.redirect(`/hotgirl/${id}`))
+    .then(newLikeNumber => res.send(newLikeNumber.toString()))
     .catch(err => res.send(err.message));
 });
 
