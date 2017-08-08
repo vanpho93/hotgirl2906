@@ -13,4 +13,18 @@ app.get('/hotgirl/:id', (req, res) => {
     .catch(err => res.send(err.message));
 });
 
+app.get('/like/:id', (req, res) => {
+    const { id } = req.params;
+    HotGirl.likeGirlById(id)
+    .then(() => res.redirect(`/hotgirl/${id}`))
+    .catch(err => res.send(err.message));
+});
+
+app.get('/dislike/:id', (req, res) => {
+    const { id } = req.params;
+    HotGirl.dislikeGirlById(id)
+    .then(() => res.redirect(`/hotgirl/${id}`))
+    .catch(err => res.send(err.message));
+});
+
 app.listen(3000, () => console.log('Server started'));
