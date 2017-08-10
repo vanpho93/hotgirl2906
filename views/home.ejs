@@ -62,6 +62,7 @@
         $('#btn-dislike').text(dislikeNumber + ' Dislike');
         $('#btn-like').text(likeNumber + ' Like');
         $('#img-show').attr('src', image);
+        history.pushState('', '', `http://localhost:3000/hotgirl/${currentId}`)
     };
 
     $('#btn-next').click((e) => {
