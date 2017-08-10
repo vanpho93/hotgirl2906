@@ -16,10 +16,10 @@ class HotGirl {
     }
 
     static async dislikeGirlById(id) {
-        const sql = 'UPDATE "HotGirl" SET "dislikeNumber" = "dislikeNumber" + 1 WHERE id = $1';
+        const sql = 'UPDATE "HotGirl" SET "dislikeNumber" = "dislikeNumber" + 1 WHERE id = $1 RETURNING "dislikeNumber"';
         const result = await queryDB(sql, [id]);
         if (result.rowCount === 0) throw new Error('Hotgirl ko ton tai.');
-        return;
+        return result.rows[0].dislikeNumber;
     }
 }
 

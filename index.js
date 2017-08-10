@@ -23,8 +23,14 @@ app.get('/like/:id', (req, res) => {
 app.get('/dislike/:id', (req, res) => {
     const { id } = req.params;
     HotGirl.dislikeGirlById(id)
-    .then(() => res.redirect(`/hotgirl/${id}`))
+    .then(newDislikeNumber => res.send(newDislikeNumber.toString()))
     .catch(err => res.send(err.message));
+});
+
+app.get('/api/hotgirl/:id', (req, res) => {
+    HotGirl.getHotGirlById(req.params.id)
+    .then(hotGirl => res.send(hotGirl))
+    .catch(err => res.send(err));
 });
 
 app.listen(3000, () => console.log('Server started'));

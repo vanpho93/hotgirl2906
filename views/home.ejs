@@ -38,5 +38,12 @@
                 $('#btn-like').text(data + ' Like');
             });
         });
+
+        $('#btn-dislike').click((e) => {
+            e.preventDefault();
+            $.get('/dislike/<%= hotGirl.id %>', (data) => {
+                $('#btn-dislike').text(data + ' Dislike');
+            });
+        });
     </script>
 </html>
