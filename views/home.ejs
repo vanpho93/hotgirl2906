@@ -1,49 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <base href="../">
-        <title>Khoa Pham</title>
-        <script src="jquery.js"></script>
-        <style>
-            hr {
-                visibility: hidden;
-            }
-            .div-control {
-                display: flex;
-                width: 300px;
-                justify-content: space-between
-            }
-        </style>
-    </head>
-    <body>
-        <div>
-            <h3><%= hotGirl.name %></h3>
-            <div class="div-control">
-                <a href="/hotgirl/<%= hotGirl.id - 1 %>">Trở lại</a>
-                <a href="/hotgirl/<%= hotGirl.id + 1 %>">Tiếp</a>
-            </div>
-            <hr />
-            <img src="<%= hotGirl.image %>" width="300">
-            <hr />
-            <div class="div-control">
-                <a href="/like/<%= hotGirl.id %>" id="btn-like"><%= hotGirl.likeNumber %> Like</a>
-                <a href="/dislike/<%= hotGirl.id %>" id="btn-dislike"><%= hotGirl.dislikeNumber %> Dislike</a>
-            </div>
-        </div>
-    </body>
-    <script>
-        $('#btn-like').click((e) => {
-            e.preventDefault();
-            $.get('/like/<%= hotGirl.id %>', (data) => {
-                $('#btn-like').text(data + ' Like');
-            });
-        });
 
-        $('#btn-dislike').click((e) => {
-            e.preventDefault();
-            $.get('/dislike/<%= hotGirl.id %>', (data) => {
-                $('#btn-dislike').text(data + ' Dislike');
-            });
+<head>
+    <base href="../">
+    <title>Khoa Pham</title>
+    <script src="jquery.js"></script>
+    <style>
+        hr {
+            visibility: hidden;
+        }
+
+        .div-control {
+            display: flex;
+            width: 300px;
+            justify-content: space-between
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h3 id="txt-name">
+            <%= hotGirl.name %>
+        </h3>
+        <div class="div-control">
+            <a href="#" id="btn-pre">Trở lại</a>
+            <a href="#" id="btn-next">Tiếp</a>
+        </div>
+        <hr />
+        <img src="<%= hotGirl.image %>" width="300" id="img-show">
+        <hr />
+        <div class="div-control">
+            <a href="#" id="btn-like">
+                <%= hotGirl.likeNumber %> Like</a>
+            <a href="#" id="btn-dislike">
+                <%= hotGirl.dislikeNumber %> Dislike</a>
+        </div>
+    </div>
+</body>
+<script>
+    let currentId = '<%= hotGirl.id %>';
+
+    $('#btn-like').click((e) => {
+        e.preventDefault();
+        $.get(`/like/${currentId}`, (data) => {
+            $('#btn-like').text(data + ' Like');
         });
-    </script>
+    });
+
+    $('#btn-dislike').click((e) => {
+        e.preventDefault();
+        $.get(`/dislike/${currentId}`, (data) => {
+            $('#btn-dislike').text(data + ' Dislike');
+        });
+    });
+
+    const loadHotGirlToView = hotGirl => {
+        const { id, name, likeNumber, dislikeNumber, image } = hotGirl;
+        currentId = id;
+        $('#txt-name').text(name);
+        $('#btn-dislike').text(dislikeNumber + ' Dislike');
+        $('#btn-like').text(likeNumber + ' Like');
+        $('#img-show').attr('src', image);
+    };
+
+    $('#btn-next').click((e) => {
+        e.preventDefault();
+        $.get(`/api/hotgirl/${+currentId + 1}`, loadHotGirlToView);
+    });
+
+    $('#btn-pre').click((e) => {
+        e.preventDefault();
+        $.get(`/api/hotgirl/${+currentId - 1}`, loadHotGirlToView);
+    });
+</script>
+
 </html>
