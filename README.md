@@ -77,6 +77,7 @@ Khó làm trước, dễ làm sau nhé.
 	vid24 -> vid30 bài tập ôn tập từ vựng
 
 6. Service
+
 	vid31
 	Sơ lược về DI và Service trong angular là gì?
 	
@@ -89,7 +90,8 @@ Khó làm trước, dễ làm sau nhé.
 	vid34 - 37: Ứng dụng thời tiết sử dụng http service
 	
 7. Form
-	vid 34. Tao form
+	
+    vid 34. Tao form
     vid 35. Handle du lieu tu form
     vid 36. Validate du lieu 
     vid 37. Handle submit
@@ -97,11 +99,13 @@ Khó làm trước, dễ làm sau nhé.
     vid 39. post du lieu len server express
 
 8. Routing
+
     vid 40. Routing don gian
     vid 41. Tao Module Routing
     vid 42. Tao module component 
     vid 42. Truyen tham so vao route
 
 9. Deploy ung dung angular 
+
     vid 43. Deploy github page
     vid 44. Deploy heroku
