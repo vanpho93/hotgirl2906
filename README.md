@@ -4,94 +4,104 @@ Khó làm trước, dễ làm sau nhé.
 	//Quay sau
 1. Installation
 	// Quay sau
-	Angular là gì?
-	Các phiên bản của Angular
+	vid1. Angular là gì?
+	vid2. Các phiên bản của Angular
 	
-	Cài đặt
-	Cấu trúc thư mục
+	vid3. Cài đặt & Cấu trúc thư mục
 
 2. Component
-
-	Video 1:
-
+	vid4.
 	- Component là gì?
 	- Tại sao lại sử dụng component
 		+ Chia tách code để dễ quản lý
 		+ Tính tái sử dụng code
+	vid5
 	- Tạo component đơn giản
 		
-		+ Sơ đồ các bước thực hiện
-		+ Viết code, component Box
-		+ Sử dụng angular-cli
-
-	Video 2:
+	vid6
+	- String interpolation
 	
-	- Hiển thị giá trị của thuộc tính lên template
+	vid7
+	- Su dung angular CLI tao component
+	
+	vid8
 	- Gắn thuộc tính cho dom
-	- Gắn sự kiện cho button click làm tăng số
-
-	Video 3:
 	
+	vid9
+	- Event binding
+
+	vid10
+	- Handle text input
+	
+	vid11
 	- Two way binding
 	
 3. Directive 
+	vid12
+	- Giới thiệu directive
 	
-	Video 1:
+	vid13
+	- ngStyle
 	
-	- Sơ lược về directive
-	- ngClass và ngStyle
-
-	Video 2:
+	vid14
+	- ngClass
 	
-	- Structure directive *ngIf và *ngFor
-	- Gợi ý trong ngFor là 1 component
+	vid15
+	- ngIf
+	
+	vid16
+	-ngFor
+	
 	
 4. Component interact
 	
-	Video 1:
-	
+	vid18
 	- Truyền thuộc tính cho component
-	- Bài tập áp dụng
 	
-	Video 2:
+	vid19
+	- kết hợp @Input và ngFor qua bài tập
 	
-	- Thay đổi state của component cha từ component con
+	vid20
+	- ViewChild cơ bản
 	
-	Video 3:
+	vid21
+	- Ứng dụng viewChild 
 	
-	- Thay đổi state của component con từ component cha
-
-
+	vid22
+	@Output cơ bản
+	
+	vid23
+	- Thay đổi state của component cha từ component con dùng @output
+	
 5. Ôn tập 1
-	
-	Video 1. Giới thiệu bài tập
-	Video 2 - 4: Làm bài tập
+	vid24 -> vid30 bài tập ôn tập từ vựng
 
 6. Service
+	vid31
+	Sơ lược về DI và Service trong angular là gì?
 	
-	Service trong angular là gì?
-	Tại sao lại sử dụng service? 
-	Sơ lược về DI
-
-7. Http service với server NodeJS
-
-
-	Get post dữ liệu với NodeJS
-	Tách get và post thành service
+	vid32
+	Tạo và sử dụng service đơn giản
 	
-8. Form
+	vid33
+	http service đơn giản
 	
-	Sơ lược về form
-	Post dữ liệu từ form
-
+	vid34 - 37: Ứng dụng thời tiết sử dụng http service
+	
+7. Form
+	vid 34. Tao form
+    vid 35. Handle du lieu tu form
+    vid 36. Validate du lieu 
+    vid 37. Handle submit
+    vid 38. Tao server express 
+    vid 39. post du lieu len server express
 
 8. Routing
+    vid 40. Routing don gian
+    vid 41. Tao Module Routing
+    vid 42. Tao module component 
+    vid 42. Truyen tham so vao route
 
-	Routing đơn giản
-	Routing có tham số
-
-10. Deploy heroku
-
-9. Bài tập học từ vựng
-
-
+9. Deploy ung dung angular 
+    vid 43. Deploy github page
+    vid 44. Deploy heroku
